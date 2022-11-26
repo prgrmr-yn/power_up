@@ -1,0 +1,2 @@
+class PowerbanksController < ApplicationController
+end
