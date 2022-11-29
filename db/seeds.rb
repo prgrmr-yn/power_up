@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+User.create(email: "test@test.com", password: "123456")
+
+Powerbank.create(user_id: 1, description: "Anker PowerCore Fusion 5000mAh", availability: true, price: 10, accessories: "USB, USB-C")
+Powerbank.create(user_id: 1, description: "Belkin Boostup 5500mAh", availability: true, price: 15, accessories: "Charger")
+Powerbank.create(user_id: 1, description: "Mipow Miffy 20W Power Bank", availability: true, price: 5, accessories: "Lightning Cable")
+Powerbank.create(user_id: 1, description: "Nimble Champ Lite Portable Charger", availability: true, price: 20, accessories: "USB-C")
