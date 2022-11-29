@@ -1,0 +1,9 @@
+<h1>Available powerbanks</h1>
+
+<ul>
+  <% @powerbanks.each do |powerbank| %>
+    <li><%= powerbank.description %></li>
+    <li><%= powerbank.price %></li>
+    <li><%= powerbank.accessories %></li>
+  <% end %>
+</ul>
