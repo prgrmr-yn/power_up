@@ -17,6 +17,8 @@ class PowerbanksController < ApplicationController
   def create
     @powerbank = Powerbank.new(powerbank_params)
     @powerbank.user = current_user
+    @powerbank.availability = true
+    # added as card for default avail boolean status
     @powerbank.save
     redirect_to powerbanks_path
   end
