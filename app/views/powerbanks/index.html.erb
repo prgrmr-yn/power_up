@@ -1,0 +1,12 @@
+<h1>Available powerbanks</h1>
+
+<ul>
+  <% @powerbanks.each do |powerbank| %>
+    <% @pow = powerbank.availability ? '✅' : '❌' %>
+    <h3><li><%= powerbank.name%> <%= @pow %></li></h3>
+
+    <li><%= powerbank.description %></li>
+    <li><%= powerbank.price %></li>
+    <li><%= powerbank.accessories %></li>
+  <% end %>
+</ul>
