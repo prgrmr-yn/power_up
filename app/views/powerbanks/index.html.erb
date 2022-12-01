@@ -7,6 +7,8 @@
 
     <li><%= powerbank.description %></li>
     <li><%= powerbank.price %></li>
-    <li><%= powerbank.accessories %></li>
+    <% unless powerbank.accessories == nil || powerbank.accessories == "" %>
+      <li><%= powerbank.accessories %></li>
+    <% end %>
   <% end %>
 </ul>

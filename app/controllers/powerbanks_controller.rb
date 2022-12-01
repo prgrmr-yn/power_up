@@ -16,6 +16,7 @@ class PowerbanksController < ApplicationController
 
   def create
     @powerbank = Powerbank.new(powerbank_params)
+    @powerbank.user = current_user
     @powerbank.save
     redirect_to powerbanks_path
   end
@@ -39,11 +40,7 @@ class PowerbanksController < ApplicationController
   private
 
   def powerbank_params
-    params.require(:powerbank).permit(:name, :description, :price)
+    params.require(:powerbank).permit(:name, :description, :price, :accessories)
   end
-
-  # def set_powerbank
-  #   @powerbank = Powerbank.find(params[:id])
-  # end
 
 end
