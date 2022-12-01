@@ -31,6 +31,7 @@ class PowerbanksController < ApplicationController
     @powerbank = Powerbank.find(params[:id])
     @powerbank.update(powerbank_params)
     @powerbank.save
+    redirect_to powerbanks_path
   end
 
   def destroy
@@ -41,8 +42,8 @@ class PowerbanksController < ApplicationController
 
   private
 
-  def powerbank_params
-    params.require(:powerbank).permit(:name, :description, :price, :accessories)
+  def powerbank_params(hash = {})
+    params.require(:powerbank).permit(:name, :description, :price, :accessories, hash[:add])
   end
 
 end

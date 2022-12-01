@@ -1,0 +1,11 @@
+<h1>Edit your powerbank</h1>
+
+
+<%= simple_form_for(@powerbank) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :price %>
+  <%= f.input :accessories %>
+  <%= f.submit %>
+<% end %>
+
