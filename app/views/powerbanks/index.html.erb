@@ -2,6 +2,7 @@
 
 <ul>
   <% @powerbanks.each do |powerbank| %>
+    <hr>
     <% @pow = powerbank.availability ? '✅' : '❌' %>
     <h3><li><%= powerbank.name%> <%= @pow %></li></h3>
 
@@ -11,4 +12,5 @@
       <li><%= powerbank.accessories %></li>
     <% end %>
   <% end %>
+  <hr>
 </ul>
