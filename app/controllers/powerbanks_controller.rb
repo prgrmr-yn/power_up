@@ -36,4 +36,14 @@ class PowerbanksController < ApplicationController
     redirect_to powerbanks_path
   end
 
+  private
+
+  def powerbank_params
+    params.require(:powerbank).permit(:name, :description, :price)
+  end
+
+  # def set_powerbank
+  #   @powerbank = Powerbank.find(params[:id])
+  # end
+
 end
