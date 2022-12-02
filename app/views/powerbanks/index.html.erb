@@ -1,7 +1,8 @@
 <h1>Available powerbanks</h1>
-
+<%= link_to 'Add a powerbank', new_powerbank_path, class: , class: "btn btn-primary" %>
 <ul>
   <% @powerbanks.each do |powerbank| %>
+    <hr>
     <% @pow = powerbank.availability ? '✅' : '❌' %>
     <h3><li><%= powerbank.name%> <%= @pow %></li></h3>
 
@@ -10,5 +11,10 @@
     <% unless powerbank.accessories == nil || powerbank.accessories == "" %>
       <li><%= powerbank.accessories %></li>
     <% end %>
+    <% if powerbank.user == current_user %>
+      <%= link_to 'edit', edit_powerbank_path(powerbank), class: "btn btn-outline-secondary" %>
+      <%= link_to 'delete', powerbank_path(powerbank), data: { turbo_confirm: 'Are you sure', turbo_method: :delete }, class: 'btn btn-danger' %>
+    <% end %>
   <% end %>
+  <hr>
 </ul>

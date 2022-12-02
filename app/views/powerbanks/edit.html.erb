@@ -1,0 +1,4 @@
+<h1>Edit your powerbank</h1>
+<!--variables -->
+<%= render 'shared/form' %>
+<%= link_to 'delete', powerbank_path(@powerbank), data: { turbo_confirm: 'Are you sure', turbo_method: :delete } , class: 'btn btn-danger'%>
