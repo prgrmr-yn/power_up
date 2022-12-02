@@ -16,6 +16,9 @@ class PowerbanksController < ApplicationController
 
   def create
     @powerbank = Powerbank.new(powerbank_params)
+    @powerbank.user = current_user
+    @powerbank.availability = true
+    # added as card for default avail boolean status
     @powerbank.save
     redirect_to powerbanks_path
   end
@@ -35,4 +38,14 @@ class PowerbanksController < ApplicationController
     @powerbank.delete
     redirect_to powerbanks_path
   end
+<<<<<<< HEAD
+=======
+
+  private
+
+  def powerbank_params
+    params.require(:powerbank).permit(:name, :description, :price, :accessories)
+  end
+
+>>>>>>> master
 end
