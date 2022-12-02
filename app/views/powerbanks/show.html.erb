@@ -1,0 +1,23 @@
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= @powerbank.description %></h5>
+    <p class="card-text"> <%= @powerbank.user.email %> </p>
+    <p class="card-text"><%= @powerbank.price %> per day</p>
+    <p class="card-text">
+      <% if @powerbank.availability %>
+        <h3> Currently available </h3>
+      <% else %>
+        <h3> Currently unavailable </h3>
+      <% end %>
+    </p>
+      <%# TODO - add edit button pending user validation %>
+      <%# <%= link_to 'Edit', edit_powerbank_path(@powerbank) %>
+
+      <%# TODO - add a form to book provided the powerbank is available AND user is not powerbank owner %>
+      <%# <%= link_to 'Edit', edit_powerbank_path(@powerbank) %>
+  </div>
+</div>
+
+
+
+<%= link_to 'Back', powerbanks_path %>

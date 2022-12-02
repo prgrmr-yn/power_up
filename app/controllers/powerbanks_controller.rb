@@ -35,5 +35,4 @@ class PowerbanksController < ApplicationController
     @powerbank.delete
     redirect_to powerbanks_path
   end
-
 end
