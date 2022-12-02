@@ -1,5 +1,5 @@
 <h1>Available powerbanks</h1>
-
+<%= link_to 'Add a powerbank', new_powerbank_path %>
 <ul>
   <% @powerbanks.each do |powerbank| %>
     <hr>
@@ -10,6 +10,10 @@
     <li><%= powerbank.price %></li>
     <% unless powerbank.accessories == nil || powerbank.accessories == "" %>
       <li><%= powerbank.accessories %></li>
+    <% end %>
+    <% if powerbank.user == current_user %>
+      <%= link_to 'edit', edit_powerbank_path(powerbank) %>
+      <%= link_to 'delete', powerbank_path(powerbank), data: { turbo_confirm: 'Are you sure', turbo_method: :delete } %>
     <% end %>
   <% end %>
   <hr>
