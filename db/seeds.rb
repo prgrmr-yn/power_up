@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+<<<<<<< HEAD
 puts "resetting database"
 User.destroy_all
 Powerbank.destroy_all
@@ -13,6 +14,11 @@ puts "Creating users..."
 User.create(email: "test@test.com", password: "123456")
 
 puts "Creating powerbanks"
+=======
+
+User.create(email: "test@test.com", password: "123456")
+
+>>>>>>> main
 Powerbank.create(user_id: 1, description: "Anker PowerCore Fusion 5000mAh", availability: true, price: 10, accessories: "USB, USB-C")
 Powerbank.create(user_id: 1, description: "Belkin Boostup 5500mAh", availability: true, price: 15, accessories: "Charger")
 Powerbank.create(user_id: 1, description: "Mipow Miffy 20W Power Bank", availability: true, price: 5, accessories: "Lightning Cable")
