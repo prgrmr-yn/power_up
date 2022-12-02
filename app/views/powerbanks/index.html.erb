@@ -12,8 +12,8 @@
       <li><%= powerbank.accessories %></li>
     <% end %>
     <% if powerbank.user == current_user %>
-      <%= link_to 'edit', edit_powerbank_path(powerbank) %>
-      <%= link_to 'delete', powerbank_path(powerbank), data: { turbo_confirm: 'Are you sure', turbo_method: :delete } %>
+      <%= link_to 'edit', edit_powerbank_path(powerbank), class: "btn btn-outline-secondary" %>
+      <%= link_to 'delete', powerbank_path(powerbank), data: { turbo_confirm: 'Are you sure', turbo_method: :delete }, class: 'btn btn-danger' %>
     <% end %>
   <% end %>
   <hr>
