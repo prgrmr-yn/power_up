@@ -1,6 +1,7 @@
 <div class="card" style="width: 18rem;">
   <div class="card-body">
-    <h5 class="card-title"><%= @powerbank.description %></h5>
+    <h5 class="card-title"><%= @powerbank.name %></h5>
+    <p class="card-text"> <%= @powerbank.description %></p>
     <p class="card-text"> <%= @powerbank.user.email %> </p>
     <p class="card-text"><%= @powerbank.price %> per day</p>
     <p class="card-text">
@@ -11,7 +12,7 @@
       <% end %>
     </p>
       <%# TODO - add edit button pending user validation %>
-      <%# <%= link_to 'Edit', edit_powerbank_path(@powerbank) %>
+      <%= link_to 'Edit', edit_powerbank_path(@powerbank) %>
 
       <%# TODO - add a form to book provided the powerbank is available AND user is not powerbank owner %>
       <%# <%= link_to 'Edit', edit_powerbank_path(@powerbank) %>

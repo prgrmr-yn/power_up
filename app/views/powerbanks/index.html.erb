@@ -4,7 +4,11 @@
   <% @powerbanks.each do |powerbank| %>
     <hr>
     <% @pow = powerbank.availability ? '✅' : '❌' %>
-    <h3><li><%= powerbank.name%> <%= @pow %></li></h3>
+    <h3>
+      <li>
+        <%= link_to 'Show powerbank', powerbank_path(powerbank), class: "btn btn-outline-secondary" %>
+      </li>
+    </h3>
 
     <li><%= powerbank.description %></li>
     <li><%= powerbank.price %></li>
