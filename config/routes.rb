@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   resources :bookings, except: [:new, :create]
   # Defines the root path route ("/")
   # root "articles#index"
+  patch 'accept', to: 'bookings#accept'
+  patch 'decline', to: 'bookings#decline'
 end
