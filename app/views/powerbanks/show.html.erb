@@ -19,6 +19,16 @@
   </div>
 </div>
 
+<div>
+<% if @powerbank.availability %>
+  <%= simple_form_for [@powerbank, @booking] do |f| %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.submit  class: "btn btn-outline-primary"%>
+    <% end %>
+  <% end %>
+</div>
+
 
 
 <%= link_to 'Back', powerbanks_path %>

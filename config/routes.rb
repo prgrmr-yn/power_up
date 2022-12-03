@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :powerbanks do
     resources :bookings, only: [:new, :create]
   end
-  resources :bookings, except: [:new, :create]
+  # resources :bookings, except: [:new, :create]
   # Defines the root path route ("/")
   # root "articles#index"
 end
