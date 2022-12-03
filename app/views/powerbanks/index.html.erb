@@ -5,27 +5,28 @@
   </button>
 </div>
 <div id = "map">
-  Placeholder for map
+<!--This image tag can go away one we have our own map(yatin)-->
+  <%= image_tag 'map1.png', height:500, width: 500%>
 </div>
 
 
-<ul>
+<ul class = "list-group">
   <div class="d-flex flex-wrap">
   <% @powerbanks.each do |powerbank| %>
     <hr>
     <div class="card m-1" style="width: 18rem;">
-      <%= powerbank.availability ? "Available for rent" : "Booked" %>
-      <li><%= powerbank.name %></li>
-      <li><%= powerbank.description %></li>
-      <li><%= powerbank.price %></li>
-      <% unless powerbank.accessories == nil || powerbank.accessories == "" %>
-        <li><%= powerbank.accessories %></li>
-      <% end %>
-      <%= link_to 'Show powerbank', powerbank_path(powerbank), class: "btn btn-outline-secondary" %>
-      <% if powerbank.user == current_user %>
-        <%= link_to 'edit', edit_powerbank_path(powerbank), class: "btn btn-outline-secondary" %>
-        <%= link_to 'delete', powerbank_path(powerbank), data: { turbo_confirm: 'Are you sure', turbo_method: :delete }, class: 'btn btn-danger' %>
-      <% end %>
+      <% @available =  powerbank.availability ? "Yes" : "Booked" %>
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <%# image_tag instead of img %>
+            <li class="list-group-item"><strong>Name: </strong>  <%= powerbank.name %></li>
+            <li class="list-group-item"><strong>Description: </strong> <%= powerbank.description %></li>
+            <li class="list-group-item"><strong>Price: </strong>$<%= powerbank.price %></li>
+            <% unless powerbank.accessories == nil || powerbank.accessories == "" %>
+              <li class="list-group-item"><strong>Accessories: </strong> <%= powerbank.accessories %></li>
+            <li class="list-group-item"><strong>Available: </strong>  <%= @available%></li>
+            <% end %>
+            <br><br>
+      <%= link_to 'Show powerbank', powerbank_path(powerbank), class: "btn btn-primary bottom-link" %>
     </div>
     <hr>
   <% end %>
