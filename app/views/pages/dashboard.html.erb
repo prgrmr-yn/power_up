@@ -29,10 +29,23 @@
 
 <div class="container px-4 py-5">
   <h2 class="pb-2 border-bottom">Pending bookings</h2>
+  <div class="d-flex flex-wrap">
   <% @bookings.each do |booking| %>
-    <%= booking.powerbank.name %>
-    <%= booking.powerbank.description %>
+    <div class="card m-1" style="width: 18rem;">
+      <div class="card-body">
+      <h5 class="card-title"><%= booking.powerbank.name %></h5>
+      <p class="card-text"> <%= booking.powerbank.description %></p>
+      <p class="card-text">
+        <% if booking.status == "Pending" %>
+          <%= link_to "Accept", accept_booking_path(booking) %>
+          <%= link_to "Decline", decline_booking_path(booking) %>
+        <% else %>
+          <h5> <%= booking.status %> </h5>
+        <% end %>
+      </div>
+    </div>
   <% end %>
+  </div>
 </div>
 
 

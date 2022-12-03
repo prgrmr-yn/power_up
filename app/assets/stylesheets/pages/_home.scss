@@ -1,1 +1,32 @@
 // Specific CSS for your home-page
+:root {
+  --primary: #EB1616;
+  --secondary: #191C24;
+  --light: #c0caff;
+  --dark: #000000;
+}
+
+.background-wrapper {
+  background-image: url(components/powerbank_bg.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0px;
+  padding: 0px;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  height: 100%;
+  width: 100%;
+}
