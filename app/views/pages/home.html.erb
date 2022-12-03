@@ -1,2 +1,19 @@
-<h1>Pages#home</h1>
-<p>Good </p>
+<div class="background-wrapper">
+  <div class="text-wrapper">
+    <h3>Running low? Need a charge? We've got you.</h3>
+    <h5> Use PowerUp to loan a powerbank nearby! </h5>
+    <%= link_to powerbanks_path do %>
+      <button class="btn btn-secondary"> Click to find a powerbank near you. </button>
+    <% end %>
+  </div>
+</div>
+
+<script>
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+</script>

@@ -5,6 +5,7 @@
 
 
 <div class="container px-4 py-5">
+<%= link_to 'List a new powerbank', new_powerbank_path, class: , class: "btn btn-primary" %>
   <h2 class="pb-2 border-bottom">Your powerbanks for loan</h2>
   <div class="d-flex flex-wrap">
     <% @powerbanks_for_loan.each do |powerbank| %>
@@ -21,6 +22,8 @@
           <% end %>
         </p>
         </div>
+        <%= link_to 'edit', edit_powerbank_path(powerbank), class: "btn btn-outline-secondary" %>
+        <%= link_to 'delete', powerbank_path(powerbank), data: { turbo_confirm: 'Are you sure', turbo_method: :delete }, class: 'btn btn-danger' %>
       </div>
     <% end %>
   </div>
@@ -28,11 +31,25 @@
 
 
 <div class="container px-4 py-5">
-  <h2 class="pb-2 border-bottom">Pending bookings</h2>
+  <h2 class="pb-2 border-bottom">Booking requests for your powerbanks</h2>
+  <div class="d-flex flex-wrap">
   <% @bookings.each do |booking| %>
-    <%= booking.powerbank.name %>
-    <%= booking.powerbank.description %>
+    <div class="card m-1" style="width: 18rem;">
+      <div class="card-body">
+      <p class="card-text"> Booking request from <%= booking.user.username %></p>
+      <h5 class="card-title"><%= booking.powerbank.name %></h5>
+      <p class="card-text"> <%= booking.powerbank.description %></p>
+      <p class="card-text">
+        <% if booking.status == "Pending" %>
+          <%= link_to "Accept", accept_booking_path(booking) %>
+          <%= link_to "Decline", decline_booking_path(booking) %>
+        <% else %>
+          <h5> <%= booking.status %> </h5>
+        <% end %>
+      </div>
+    </div>
   <% end %>
+  </div>
 </div>
 
 
