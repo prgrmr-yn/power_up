@@ -1,1 +1,52 @@
-<h1>Dashboard depending on which user</h1>
+
+<div class="container px-4 py-5">
+  <h1>Dashboard</h1>
+  Hello, <%= current_user.username %>
+
+
+<div class="container px-4 py-5">
+  <h2 class="pb-2 border-bottom">Your powerbanks for loan</h2>
+  <div class="d-flex flex-wrap">
+    <% @powerbanks_for_loan.each do |powerbank| %>
+      <div class="card m-1" style="width: 18rem;">
+        <div class="card-body">
+        <h5 class="card-title"><%= powerbank.name %></h5>
+        <p class="card-text"> <%= powerbank.description %></p>
+        <p class="card-text"><%= powerbank.price %> per day</p>
+        <p class="card-text">
+          <% if powerbank.availability %>
+            <h5> Currently available </h5>
+          <% else %>
+            <h5> Currently loaned out </h5>
+          <% end %>
+        </p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="container px-4 py-5">
+  <h2 class="pb-2 border-bottom">Pending bookings</h2>
+  <% @bookings.each do |booking| %>
+    <%= booking.powerbank.name %>
+    <%= booking.powerbank.description %>
+  <% end %>
+</div>
+
+
+<div class="container px-4 py-5">
+  <h2 class="pb-2 border-bottom">Your bookings</h2>
+  <div class="d-flex flex-wrap">
+    <% @my_bookings.each do |booking| %>
+      <div class="card m-1" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%= booking.powerbank.name %></h5>
+          <p class="card-text"> <%= booking.powerbank.description %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+</div>
