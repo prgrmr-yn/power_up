@@ -14,9 +14,9 @@
   <div class="d-flex flex-wrap">
   <% @powerbanks.each do |powerbank| %>
     <hr>
-    <div class="card m-1" style="width: 18rem;">
+    <div class="card m-1 each-card" style="width: 18rem;">
       <% @available =  powerbank.availability ? "Yes" : "Booked" %>
-            <%= image_tag ['powerbank_anker.jpeg', 'powerbank_pink.jpeg', 'powerbank_blue.jpeg', 'powerbank_blue.jpeg', 'powerbank_pink.jpeg', 'powerbank_anker.jpeg'].sample%>
+            <%= image_tag ['powerbank_anker.jpeg', 'powerbank_pink.jpeg', 'powerbank_blue.jpeg', 'powerbank_blue.jpeg', 'powerbank_pink.jpeg', 'powerbank_anker.jpeg'].sample, class: "card-img-top img-top"%>
             <li class="list-group-item"><strong>Name: </strong>  <%= powerbank.name %></li>
             <li class="list-group-item"><strong>Description: </strong> <%= powerbank.description %></li>
             <li class="list-group-item"><strong>Price: </strong>$<%= powerbank.price %></li>
@@ -24,7 +24,6 @@
               <li class="list-group-item"><strong>Accessories: </strong> <%= powerbank.accessories %></li>
             <li class="list-group-item"><strong>Available: </strong>  <%= @available%></li>
             <% end %>
-            <br><br>
       <%= link_to 'Show powerbank', powerbank_path(powerbank), class: "btn btn-primary bottom-link" %>
     </div>
     <hr>
