@@ -11,6 +11,10 @@
     <% @powerbanks_for_loan.each do |powerbank| %>
       <div class="card m-1" style="width: 18rem;">
         <div class="card-body">
+        <!--
+         <%# <%= cl_image_tag(powerbank.photo.key, width: 400, height: 300, crop: :fill) %>
+%>
+--> 
         <h5 class="card-title"><%= powerbank.name %></h5>
         <p class="card-text"> <%= powerbank.description %></p>
         <p class="card-text"><%= powerbank.price %> per day</p>

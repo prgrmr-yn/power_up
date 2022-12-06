@@ -4,6 +4,8 @@
   Find powerbanks near me
   </button>
 </div>
+
+
 <div id = "map">
   Placeholder for map
 </div>
@@ -13,6 +15,11 @@
   <div class="d-flex flex-wrap">
   <% @powerbanks.each do |powerbank| %>
     <hr>
+<!--image tag
+<%# <%= cl_image_tag(powerbank.photo.key, width: 400, height: 300, crop: :fill) %> %>
+-->
+
+
     <div class="card m-1" style="width: 18rem;">
       <%= powerbank.availability ? "Available for rent" : "Booked" %>
       <li><%= powerbank.name %></li>
