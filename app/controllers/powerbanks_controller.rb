@@ -13,6 +13,8 @@ class PowerbanksController < ApplicationController
   def show
     @powerbank = Powerbank.find(params[:id])
     @booking = Booking.new
+    email = @powerbank.user.email
+    @name = email.match(/.*@/).to_s.chop.capitalize
   end
 
   def create
@@ -46,5 +48,6 @@ class PowerbanksController < ApplicationController
   def powerbank_params
     params.require(:powerbank).permit(:name, :description, :price, :accessories)
   end
+  
 
 end
