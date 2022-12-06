@@ -4,6 +4,8 @@
   Find powerbanks near me
   </button>
 </div>
+
+
 <div id = "map">
 <!--This image tag can go away one we have our own map(yatin)-->
   <%= image_tag 'map1.png', height:500, width: 500%>
@@ -16,6 +18,7 @@
     <hr>
     <div class="card m-1 each-card" style="width: 18rem;">
       <% @available =  powerbank.availability ? "Yes" : "Booked" %>
+            <%# <%= cl_image_tag(powerbank.photo.key, width: 400, height: 300, crop: :fill) %>
             <%= image_tag ['powerbank_anker.jpeg', 'powerbank_pink.jpeg', 'powerbank_blue.jpeg', 'powerbank_blue.jpeg', 'powerbank_pink.jpeg', 'powerbank_anker.jpeg'].sample, class: "card-img-top img-top"%>
             <li class="list-group-item"><strong>Name: </strong>  <%= powerbank.name %></li>
             <li class="list-group-item"><strong>Description: </strong> <%= powerbank.description %></li>

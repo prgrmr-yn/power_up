@@ -1,7 +1,7 @@
 <ul class = "list-group list-group-flush ">
   <% @available =  @powerbank.availability ? "Yes" : "Booked" %>
-  <img class="card-img-top" src="..." alt="Card image cap">
-  <%# image_tag instead of img %>
+  <%# <img class="card-img-top" src="..." alt="Card image cap"> %>
+  <%# <%= cl_image_tag @powerbank.photo.key, crop: :fill, class: card-img-top  %>
   <li class="list-group-item"><strong>Name: </strong>  <%= @powerbank.name %></li>
   <li class="list-group-item"><strong>Description: </strong> <%= @powerbank.description %></li>
   <li class="list-group-item"><strong>Price: </strong>$<%= @powerbank.price %></li>
