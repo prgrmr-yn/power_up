@@ -17,15 +17,13 @@ cl_images = ["https://res.cloudinary.com/drjspypyq/image/upload/v1670315676/down
 require 'open-uri'
 
 
-
-
-
 puts "resetting database..."
 print `rails db:drop`
+puts "Database resetted"
+puts "Creating database"
 print `rails db:create`
+puts "Databse created"
 print `rails db:migrate`
-puts 'database dropped and migrated'
-
 
 puts "Creating users..."
 User.create(username: "stephen", email: "stephen@test.com", password: "123456")
