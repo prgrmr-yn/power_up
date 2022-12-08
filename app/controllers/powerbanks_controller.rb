@@ -3,7 +3,21 @@ class PowerbanksController < ApplicationController
     # note - may take in query params in order to filter and return specific kinds of powerbanks
     # to be done after the search lecture with the pg_search gem
     # will return the full list for now - placeholder only
-    @powerbanks = Powerbank.where.not(user: current_user)
+    if params[:longitude].present? && params[:latitude].present?
+      puts params
+      @powerbanks = Powerbank.near([params[:latitude].to_i, params[:longitude].to_i], 500)
+
+      puts @powerbanks
+    else
+      @powerbanks = Powerbank.where.not(user: current_user)
+    end
+
+    @markers = @powerbanks.map do |powerbank|
+      {
+        lat: powerbank.latitude,
+        lng: powerbank.longitude
+      }
+    end
   end
 
   def new
@@ -48,6 +62,6 @@ class PowerbanksController < ApplicationController
   def powerbank_params
     params.require(:powerbank).permit(:name, :description, :price, :accessories)
   end
-  
+
 
 end
