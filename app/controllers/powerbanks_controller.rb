@@ -60,7 +60,7 @@ class PowerbanksController < ApplicationController
   private
 
   def powerbank_params
-    params.require(:powerbank).permit(:name, :description, :price, :accessories)
+    params.require(:powerbank).permit(:name, :description, :price, :accessories, :photo)
   end
 
 
