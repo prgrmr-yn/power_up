@@ -29,3 +29,15 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+li > .dropdown-menu > .dropdown-item {
+  color: #464545;
+}
+.nav-item > .nav-link {
+  color: rgb(244, 235, 235);
+
+  &:hover {
+    color: white;
+    text-shadow: 1px 1px 10px white;
+  }
+}
