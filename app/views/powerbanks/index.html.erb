@@ -18,11 +18,11 @@
     <hr>
     <div class="card m-1 each-card" style="width: 18rem;">
       <% @available =  powerbank.availability ? "Yes" : "Booked" %>
-            <%# <%= cl_image_tag(powerbank.photo.key, width: 400, height: 300, crop: :fill) %>
-            <%= image_tag ['powerbank_anker.jpeg', 'powerbank_pink.jpeg', 'powerbank_blue.jpeg', 'powerbank_blue.jpeg', 'powerbank_pink.jpeg', 'powerbank_anker.jpeg'].sample, class: "card-img-top img-top"%>
+            <%= cl_image_tag powerbank.photo.key, crop: :fill,  class: "card-img-top img-top" %>
+            <%# <%= image_tag ['powerbank_anker.jpeg', 'powerbank_pink.jpeg', 'powerbank_blue.jpeg', 'powerbank_blue.jpeg', 'powerbank_pink.jpeg', 'powerbank_anker.jpeg'].sample, class: "card-img-top img-top" %> %>
             <li class="list-group-item"><strong>Name: </strong>  <%= powerbank.name %></li>
             <li class="list-group-item"><strong>Description: </strong> <%= powerbank.description %></li>
-            <li class="list-group-item"><strong>Price: </strong>$<%= powerbank.price %></li>
+            <li class="list-group-item"><strong>Price: </strong>$<%= powerbank.price %>per day</li>
             <% unless powerbank.accessories == nil || powerbank.accessories == "" %>
               <li class="list-group-item"><strong>Accessories: </strong> <%= powerbank.accessories %></li>
             <li class="list-group-item"><strong>Available: </strong>  <%= @available%></li>
