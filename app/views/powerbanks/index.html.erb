@@ -4,38 +4,26 @@
   Find powerbanks near me
   </button>
 </div>
-<<<<<<< HEAD
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-=======
 
-
-<div id = "map">
-<!--This image tag can go away one we have our own map(yatin)-->
-  <%= image_tag 'map1.png', height:500, width: 500%>
->>>>>>> master
+<div>
+  <div style="width: 100%; height: 600px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
 
 
 <ul class = "list-group">
   <div class="d-flex flex-wrap">
+  <% count = 0 %>
   <% @powerbanks.each do |powerbank| %>
     <hr>
+    <% count += 1 %>
     <div class="card m-1 each-card" style="width: 18rem;">
       <% @available =  powerbank.availability ? "Yes" : "Booked" %>
-<<<<<<< HEAD
-        <%= image_tag ['powerbank_anker.jpeg', 'powerbank_pink.jpeg', 'powerbank_blue.jpeg', 'powerbank_blue.jpeg', 'powerbank_pink.jpeg', 'powerbank_anker.jpeg'].sample, class: "card-img-top img-top"%>
-        <li class="list-group-item"><strong>Name: </strong>  <%= powerbank.name %></li>
-        <li class="list-group-item"><strong>Description: </strong> <%= powerbank.description %></li>
-        <li class="list-group-item"><strong>Price: </strong>$<%= powerbank.price %></li>
-        <% unless powerbank.accessories == nil || powerbank.accessories == "" %>
-          <li class="list-group-item"><strong>Accessories: </strong> <%= powerbank.accessories %></li>
-        <li class="list-group-item"><strong>Available: </strong>  <%= @available%></li>
-        <% end %>
-=======
             <%= cl_image_tag powerbank.photo.key, crop: :fill,  class: "card-img-top img-top" %>
+            <div class="marker-label"><div><strong><%= count %></strong></div></div>
             <li class="list-group-item"><strong>Name: </strong>  <%= powerbank.name %></li>
             <li class="list-group-item"><strong>Description: </strong> <%= powerbank.description %></li>
             <li class="list-group-item"><strong>Price: </strong>$<%= powerbank.price %>per day</li>
@@ -43,7 +31,6 @@
               <li class="list-group-item"><strong>Accessories: </strong> <%= powerbank.accessories %></li>
             <li class="list-group-item"><strong>Available: </strong>  <%= @available%></li>
             <% end %>
->>>>>>> master
       <%= link_to 'Show powerbank', powerbank_path(powerbank), class: "btn btn-primary bottom-link" %>
     </div>
     <hr>
@@ -57,10 +44,12 @@
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((location) => {
-      window.location.search = `${}`;
+      const latitude = location.coords.latitude
+      const longitude = location.coords.longitude
+      window.location.search = `longitude=${longitude}&latitude=${latitude}`;
     });
   } else {
-    x.innerHTML = "Geolocation is not supported by this browser.";
+    console.log("Geolocation is not supported by this browser.");
   }
 }
 

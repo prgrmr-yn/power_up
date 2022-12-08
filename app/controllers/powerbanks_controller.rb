@@ -4,18 +4,26 @@ class PowerbanksController < ApplicationController
     # to be done after the search lecture with the pg_search gem
     # will return the full list for now - placeholder only
     if params[:longitude].present? && params[:latitude].present?
+      coordinates = [params[:latitude].to_i, params[:longitude].to_i]
       puts params
-      @powerbanks = Powerbank.near([params[:latitude].to_i, params[:longitude].to_i], 500)
+      @powerbanks = Powerbank.near(coordinates, 200)
 
       puts @powerbanks
     else
       @powerbanks = Powerbank.where.not(user: current_user)
     end
 
+    count = 0
     @markers = @powerbanks.map do |powerbank|
       {
+        count: count += 1,
         lat: powerbank.latitude,
-        lng: powerbank.longitude
+        lng: powerbank.longitude,
+        info_window: render_to_string(partial: "info_window",
+                                      locals: {
+                                        powerbank: powerbank,
+                                        distance: (powerbank.distance_from(coordinates) if coordinates.present?)
+                                      }.compact)
       }
     end
   end
