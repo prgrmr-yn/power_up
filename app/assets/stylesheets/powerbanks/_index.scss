@@ -1,0 +1,23 @@
+#map {
+  height: 500px;
+  width: 500px;
+  margin: 20px auto;
+  background-color: lightgrey;
+}
+
+.bottom-link{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width:100%
+}
+
+.each-card{
+  max-height: 440px;
+}
+
+
+.img-top{
+  width: 100%;
+  height: 45%;
+}
