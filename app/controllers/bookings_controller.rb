@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.status = "Pending"
     @booking.save
-    redirect_to dashboard_path
+    redirect_to dashboard_path, notice: 'Your booking request has been created'
   end
 
   def accept

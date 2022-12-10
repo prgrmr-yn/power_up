@@ -5,7 +5,7 @@ class PowerbanksController < ApplicationController
     # will return the full list for now - placeholder only
     if params[:longitude].present? && params[:latitude].present?
       coordinates = [params[:latitude], params[:longitude]]
-      @powerbanks = Powerbank.near(coordinates, 50)
+      @powerbanks = Powerbank.near(coordinates, 10)
 
     else
       @powerbanks = Powerbank.where.not(user: current_user)
