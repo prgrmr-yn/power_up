@@ -1,0 +1,6 @@
+<li class="list-group-item"><%= powerbank.name %></li>
+<li class="list-group-item"><%= powerbank.description %></li>
+<% if defined?distance %>
+  <li class="list-group-item"> <%= distance %> km away</li>
+<% end %>
+<%= link_to 'Book', powerbank_path(powerbank), class: "btn btn-primary bottom-link" %>

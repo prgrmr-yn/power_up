@@ -32,14 +32,26 @@ User.create(username: "yatin", email: "yatin@test.com", password: "123456")
 User.create(username: "pizza", email: "pizza@pasta.com", password: "123456")
 puts 'Users created'
 
-
 puts "Creating powerbanks"
 powerbanks_name = ["Anker PowerCore Fusion", "Anker Ultra Fusion", "Nimble Champ Lite", "Nimble Champ Heavy Duty", "AnkFusion", "Belkin Boostup", "Mipow Miffy"]
 powerbanks_acc = ["USB, USB-C", 'Case', 'Charging cable', 'Lightening cable']
 
+coordinates = [
+  [-37.899684, 145.0937182],
+  [-39, 145],
+  [-37.821551731279826, 145.0937182],
+  [-37.823755502760164, 144.9919022868171],
+  [-37.823755502760164, 144.99134430828218],
+  [-37.81861173516377, 144.99922758498255],
+  [-37.80773581457175, 144.974704937587],
+  [-37.7275902, 145.1245541],
+  [-35.7275902, 143.1245541],
+  [-38.7275902, 139.213],
+]
+
 10.times do |i|
   file = URI.open(cl_images[i])
-  p1 = Powerbank.new(user_id: rand(1..4), name: powerbanks_name.sample, description: "#{rand(1..5)}000mAh", availability: true, price: rand(20..50), accessories: powerbanks_acc.sample)
+  p1 = Powerbank.new(user_id: rand(1..4), name: powerbanks_name.sample, description: "#{rand(1..5)}000mAh", availability: true, price: rand(20..50), accessories: powerbanks_acc.sample, latitude: coordinates[i][0], longitude: coordinates[i][1])
   p1.photo.attach(io: file, filename: 'p1.png', content_type: 'image/png')
   p1.save!
   puts "Powerbank with id #{p1.id} has been created"
