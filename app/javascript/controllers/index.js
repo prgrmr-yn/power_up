@@ -10,5 +10,8 @@ application.register("hello", HelloController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
+import ShowBookingController from "./show_booking_controller"
+application.register("show-booking", ShowBookingController)
+
 import TypedJsController from "./typed_js_controller"
 application.register("typed-js", TypedJsController)

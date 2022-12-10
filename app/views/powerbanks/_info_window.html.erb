@@ -1,7 +1,5 @@
 <li class="list-group-item"><%= powerbank.name %></li>
 <li class="list-group-item"><%= powerbank.description %></li>
-<li class="list-group-item">$<%= powerbank.price %> per day</li>
-<li class="list-group-item">owned by <%= powerbank.user.username %></li>
 <% if defined?distance %>
   <li class="list-group-item"> <%= distance %> km away</li>
 <% end %>
