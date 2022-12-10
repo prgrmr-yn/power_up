@@ -33,7 +33,7 @@ User.create(username: "pizza", email: "pizza@pasta.com", password: "123456")
 puts 'Users created'
 
 puts "Creating powerbanks"
-powerbanks_name = ["Anker PowerCore Fusion", "Anker Ultra Fusion", "Nimble Champ Lite", "Nimble Champ Heavy Duty", "AnkFusion", "Belkin Boostup", "Mipow Miffy"]
+powerbanks_name = ["Anker PowerCore Fusion", "Anker Ultra Fusion", "Nimble Champ Lite", "Nimble Champ Ultra", "AnkFusion", "Belkin Boostup", "Mipow Miffy"]
 powerbanks_acc = ["USB, USB-C", 'Case', 'Charging cable', 'Lightening cable']
 
 coordinates = [

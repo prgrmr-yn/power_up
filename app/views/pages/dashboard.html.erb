@@ -14,16 +14,13 @@
         <!--
          <%# <%= cl_image_tag(powerbank.photo.key, width: 400, height: 300, crop: :fill) %>
 %>
---> 
-        <h5 class="card-title"><%= powerbank.name %></h5>
-        <p class="card-text"> <%= powerbank.description %></p>
-        <p class="card-text"><%= powerbank.price %> per day</p>
+-->
+         <% @available =  powerbank.availability ? "Yes" : "No" %>
+        <h5 class="card-title"><strong>Name: </strong> <%= powerbank.name %></h5>
+        <p class="card-text"><strong>Description: </strong> <%= powerbank.description %></p>
+        <p class="card-text"><strong>Price: </strong>$<%= powerbank.price %> per day</p>
         <p class="card-text">
-          <% if powerbank.availability %>
-            <h5> Currently available </h5>
-          <% else %>
-            <h5> Currently loaned out </h5>
-          <% end %>
+          <strong>Available: </strong> <%= @available %>
         </p>
         </div>
         <%= link_to 'edit', edit_powerbank_path(powerbank), class: "btn btn-outline-secondary" %>

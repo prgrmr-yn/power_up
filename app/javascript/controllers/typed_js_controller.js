@@ -7,7 +7,7 @@ export default class extends Controller {
   connect() {
     console.log('hello from typed');
     new Typed(this.element, {
-      strings:["Running low?", "Need a charge?", "We've got you...."],
+      strings:["Running low?", "Need a charge?", "We got you...."],
       typeSpeed: 65,
       loop: true
     })
