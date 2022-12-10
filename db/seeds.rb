@@ -18,12 +18,14 @@ require 'open-uri'
 
 
 puts "resetting database..."
-print `rails db:drop`
-puts "Database resetted"
-puts "Creating database"
-print `rails db:create`
-puts "Databse created"
-print `rails db:migrate`
+
+# print `heroku pg:reset DATABASE_URL`
+# print `rails db:drop`
+# puts "Database resetted"
+# puts "Creating database"
+# print `rails db:create`
+# puts "Databse created"
+# print `rails db:migrate`
 
 puts "Creating users..."
 User.create(username: "stephen", email: "stephen@test.com", password: "123456")
