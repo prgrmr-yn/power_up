@@ -39,6 +39,7 @@ class BookingsController < ApplicationController
   def update
     @booking = Booking.find(params[:id])
     @booking.update(booking_params)
+    @booking.status = "Pending"
     @booking.save
     redirect_to dashboard_path
   end
