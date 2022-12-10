@@ -1,4 +1,5 @@
-<h1 class = "text-center">Powerbanks near you</h1>
+<div class="container">
+  <h1 class = "text-center">Powerbanks near you</h1>
 <div class = "d-flex justify-content align-items">
   <button onclick="getLocation()" class = "btn btn-outline-secondary" style="margin:0 auto">
   Find powerbanks near me
@@ -31,7 +32,7 @@
               <li class="list-group-item"><strong>Accessories: </strong> <%= powerbank.accessories %></li>
             <li class="list-group-item"><strong>Available: </strong>  <%= @available%></li>
             <% end %>
-      <%= link_to 'Show powerbank', powerbank_path(powerbank), class: "btn btn-primary bottom-link" %>
+      <%= link_to 'Show powerbank', powerbank_path(powerbank), class: "btn btn-primary bottom-link-index" %>
     </div>
     <hr>
   <% end %>
@@ -54,3 +55,5 @@ function getLocation() {
 }
 
 </script>
+
+</div>

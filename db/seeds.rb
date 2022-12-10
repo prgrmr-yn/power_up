@@ -48,7 +48,7 @@ puts "Creating powerbanks"
 # Powerbank.create(user_id: 3, name:"Nimble Champ Lite", description: "Portable Charger", availability: true, price: 20, accessories: "USB-C", latitude: -37.823755502760164, longitude: 144.99134430828218)
 # Powerbank.create(user_id: 3, name:"Nimble Champ Lite", description: "Portable Charger", availability: true, price: 20, accessories: "USB-C", latitude: -37.81861173516377, longitude: 144.99922758498255)
 # Powerbank.create(user_id: 3, name:"Nimble Champ Lite", description: "Portable Charger", availability: true, price: 20, accessories: "USB-C", latitude: -37.80773581457175, longitude: 144.974704937587)
-powerbanks_name = ["Anker PowerCore Fusion", "Anker Ultra Fusion", "Nimble Champ Lite", "Nimble Champ Heavy Duty", "AnkFusion", "Belkin Boostup", "Mipow Miffy"]
+powerbanks_name = ["Anker PowerCore Fusion", "Anker Ultra Fusion", "Nimble Champ Lite", "Nimble Champ Ultra", "AnkFusion", "Belkin Boostup", "Mipow Miffy"]
 powerbanks_acc = ["USB, USB-C", 'Case', 'Charging cable', 'Lightening cable']
 
 coordinates = [

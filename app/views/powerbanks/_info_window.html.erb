@@ -1,8 +1,8 @@
-<li class="list-group-item"><%= powerbank.name %></li>
-<li class="list-group-item"><%= powerbank.description %></li>
-<li class="list-group-item">$<%= powerbank.price %> per day</li>
-<li class="list-group-item">owned by <%= powerbank.user.username %></li>
-<% if defined?distance %>
-  <li class="list-group-item"> <%= distance %> km away</li>
-<% end %>
-<%= link_to 'Book', powerbank_path(powerbank), class: "btn btn-primary bottom-link" %>
+<ul class="list-group">
+  <li class="list-group-item"><strong>Name: </strong><%= powerbank.name %></li>
+  <li class="list-group-item"><strong>Price: </strong>$<%= powerbank.price %> per day</li>
+  <% if defined?distance %>
+    <li class="list-group-item"><strong>Distance: </strong> <%= distance.to_i %> km away</li>
+  <% end %>
+    <%= link_to 'Show', powerbank_path(powerbank), class: "btn btn-primary" %>
+</ul>
