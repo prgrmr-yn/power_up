@@ -34,20 +34,22 @@
   <h2 class="pb-2 border-bottom">Booking requests for your powerbanks</h2>
   <div class="d-flex flex-wrap">
   <% @bookings.each do |booking| %>
-    <div class="card m-1" style="width: 18rem;">
-      <div class="card-body">
-      <p class="card-text"> Booking request from <%= booking.user.username %></p>
-      <h5 class="card-title"><%= booking.powerbank.name %></h5>
-      <p class="card-text"> <%= booking.powerbank.description %></p>
-      <p class="card-text">
-        <% if booking.status == "Pending" %>
-          <%= link_to "Accept", accept_booking_path(booking) %>
-          <%= link_to "Decline", decline_booking_path(booking) %>
-        <% else %>
-          <h5> <%= booking.status %> </h5>
-        <% end %>
+    <% if booking.status != "Declined" %>
+      <div class="card m-1" style="width: 18rem;">
+        <div class="card-body">
+        <p class="card-text"> Booking request from <%= booking.user.username %></p>
+        <h5 class="card-title"><%= booking.powerbank.name %></h5>
+        <p class="card-text"> <%= booking.powerbank.description %></p>
+        <p class="card-text">
+          <% if booking.status == "Pending" %>
+            <%= link_to "Accept", accept_booking_path(booking) %>
+            <%= link_to "Decline", decline_booking_path(booking) %>
+          <% else %>
+            <h5> <%= booking.status %> </h5>
+          <% end %>
+        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
   </div>
 </div>
