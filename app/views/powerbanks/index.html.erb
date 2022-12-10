@@ -21,7 +21,7 @@
   <% @powerbanks.each do |powerbank| %>
     <hr>
     <% count += 1 %>
-    <div class="card m-1 each-card" style="width: 18rem;">
+    <div class="card m-1 each-card" style="width: 14rem;">
       <% @available =  powerbank.availability ? "Yes" : "Booked" %>
             <%= cl_image_tag powerbank.photo.key, crop: :fill,  class: "card-img-top img-top" %>
             <div class="marker-label"><div><strong><%= count %></strong></div></div>
