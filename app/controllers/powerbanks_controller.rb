@@ -4,11 +4,9 @@ class PowerbanksController < ApplicationController
     # to be done after the search lecture with the pg_search gem
     # will return the full list for now - placeholder only
     if params[:longitude].present? && params[:latitude].present?
-      coordinates = [params[:latitude].to_i, params[:longitude].to_i]
-      puts params
-      @powerbanks = Powerbank.near(coordinates, 200)
+      coordinates = [params[:latitude], params[:longitude]]
+      @powerbanks = Powerbank.near(coordinates, 50)
 
-      puts @powerbanks
     else
       @powerbanks = Powerbank.where.not(user: current_user)
     end

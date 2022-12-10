@@ -1,6 +1,6 @@
 #map {
-  height: 500px;
-  width: 500px;
+  width: 100%;
+  height: 400px;
   margin: 20px auto;
   background-color: lightgrey;
 }
@@ -38,4 +38,8 @@
 .img-top{
   width: 100%;
   height: 45%;
+}
+
+.hidden{
+  display: none;
 }
