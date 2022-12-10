@@ -67,7 +67,7 @@
           <p class="card-text"> <%= booking.powerbank.description %></p>
           <p class="card-text"> <%= booking.status %></p>
         </div>
-        <%= link_to 'Edit/Cancel booking', edit_powerbank_booking_path(@powerbank), class: , class: "btn btn-primary" %>
+        <%= link_to 'Edit/Cancel booking', powerbank_booking_path(booking.powerbank, booking), class: , class: "btn btn-primary" %>
       </div>
     <% end %>
   </div>
