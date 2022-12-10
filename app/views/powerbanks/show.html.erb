@@ -1,5 +1,8 @@
 <div style="max-width: 60rem;" class="container mt-5">
-  <div class="card container">
+  <div class="d-flex justify-content-end m-2">
+    <%= link_to '↩ Browse more powerbanks', powerbanks_path , class: 'btn btn-primary'%>
+  </div>
+  <div class="card container p-2">
     <% @available =  @powerbank.availability ? "Yes" : "Booked" %>
     <div class="row">
       <div class="col">
@@ -25,17 +28,18 @@
 
 
 <% if @powerbank.availability %>
-  <div class="d-flex flex-column justify-content-center align-items-center" data-controller="show-booking">
-    <div>
-      <button class="btn btn-primary" data-action="click->show-booking#showBooking"> Request booking </button>
-      <%= link_to 'Browse more powerbanks', powerbanks_path , class: 'btn btn-primary'%>
+  <div class="d-flex flex-column justify-content-center align-items-center m-3" data-controller="show-booking">
+    <div class="d-flex justify-content-end" >
+      <button class="btn btn-primary" data-action="click->show-booking#showBooking" data-show-booking-target="requestbutton"> Request booking </button>
     </div>
     <div class="hidden" data-show-booking-target="form">
       <%= simple_form_for [@powerbank, @booking] do |f| %>
         <%= f.input :start_date %>
         <%= f.input :end_date %>
-        <%= f.button :submit,  'Make request',  class: "btn btn-secondary"%>
+        <%= f.button :submit,  'Book',  class: "btn btn-secondary"%>
+        <a href data-action="click->show-booking#showBooking" class="btn btn-secondary">Cancel</a>
       <% end %>
+
     </div>
     </div>
   </div>
