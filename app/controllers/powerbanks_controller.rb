@@ -51,8 +51,14 @@ class PowerbanksController < ApplicationController
   end
 
   def update
+
     @powerbank = Powerbank.find(params[:id])
     @powerbank.update(powerbank_params)
+    if params[:powerbank][:availability] == '0'
+      @powerbank.availability = false
+    elsif params[:powerbank][:availability] == '1'
+      @powerbank.availability = true
+    end
     @powerbank.save
     redirect_to dashboard_path
   end

@@ -16,10 +16,11 @@
 -->
 <!-- using bootstrap to make a button -->
   <div class="form-check form-switch boolean optional">
-  <input name="powerbank[availability]" type="hidden" value="0" autocomplete="off">
-  <input class="form-check-input" type="checkbox" value = "1" id="powerbank_availability" name=powerbank[availability] <%= @checked %>>
-  <label class="form-check-label" for="flexSwitchCheckChecked">Available for rent</label>
+    <input name="powerbank[availability]" type="hidden" value="0" autocomplete="off">
+    <input class="form-check-input" type="checkbox" value = "1" id="powerbank_availability" name=powerbank[availability] <%= @checked %>>
+    <label class="form-check-label" for="flexSwitchCheckChecked">Available for rent</label>
   </div>
+
   <%= f.submit  class: "btn btn-outline-primary"%>
 
   <% end %>
