@@ -5,8 +5,7 @@
 
 
 <div class="container px-4 py-5">
-<%= link_to 'List a new powerbank', new_powerbank_path, class: , class: "btn btn-primary" %>
-  <h2 class="pb-2 border-bottom">Your powerbanks for loan</h2>
+  <h2 class="pb-2 border-bottom">Your powerbanks for loan <%= link_to 'List a new powerbank', new_powerbank_path, class: , class: "btn btn-primary" %></h2>
   <div class="d-flex flex-wrap">
     <% @powerbanks_for_loan.each do |powerbank| %>
       <div class="card m-1" style="width: 18rem;">
@@ -55,14 +54,20 @@
 
 
 <div class="container px-4 py-5">
-  <h2 class="pb-2 border-bottom">Your bookings</h2>
+  <h2 class="pb-2 border-bottom">Your bookings <%= link_to 'Find a powerbank', powerbanks_path, class: , class: "btn btn-primary" %></h2>
   <div class="d-flex flex-wrap">
     <% @my_bookings.each do |booking| %>
       <div class="card m-1" style="width: 18rem;">
         <div class="card-body">
+          <p><strong>Powerbank</strong></p>
           <h5 class="card-title"><%= booking.powerbank.name %></h5>
           <p class="card-text"> <%= booking.powerbank.description %></p>
+          <p><strong>Dates Booked</strong></p>
+          <p class="card-text"> <%= booking.start_date %> to <%= booking.end_date %></p>
+          <p><strong>Booking Status</strong></p>
+          <p class="card-text"> <%= booking.status %></p>
         </div>
+        <%= link_to 'Edit/Cancel booking', powerbank_booking_path(booking.powerbank, booking), class: , class: "btn btn-primary" %>
       </div>
     <% end %>
   </div>

@@ -6,7 +6,6 @@ class PagesController < ApplicationController
     @current_user = current_user
     @powerbanks_for_loan = Powerbank.where(user: current_user)
     # this will show all the current user's powerbanks
-
     @bookings = []
 
     @powerbanks_for_loan.each do |powerbank|
