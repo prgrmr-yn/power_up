@@ -14,15 +14,12 @@
          <%# <%= cl_image_tag(powerbank.photo.key, width: 400, height: 300, crop: :fill) %>
 %>
 -->
-        <h5 class="card-title"><%= powerbank.name %></h5>
-        <p class="card-text"> <%= powerbank.description %></p>
-        <p class="card-text"><%= powerbank.price %> per day</p>
+         <% @available =  powerbank.availability ? "Yes" : "No" %>
+        <h5 class="card-title"><strong>Name: </strong> <%= powerbank.name %></h5>
+        <p class="card-text"><strong>Description: </strong> <%= powerbank.description %></p>
+        <p class="card-text"><strong>Price: </strong>$<%= powerbank.price %> per day</p>
         <p class="card-text">
-          <% if powerbank.availability %>
-            <h5> Currently available </h5>
-          <% else %>
-            <h5> Currently loaned out </h5>
-          <% end %>
+          <strong>Available: </strong> <%= @available %>
         </p>
         </div>
         <%= link_to 'edit', edit_powerbank_path(powerbank), class: "btn btn-outline-secondary" %>
@@ -62,8 +59,12 @@
     <% @my_bookings.each do |booking| %>
       <div class="card m-1" style="width: 18rem;">
         <div class="card-body">
+          <p><strong>Powerbank</strong></p>
           <h5 class="card-title"><%= booking.powerbank.name %></h5>
           <p class="card-text"> <%= booking.powerbank.description %></p>
+          <p><strong>Dates Booked</strong></p>
+          <p class="card-text"> <%= booking.start_date %> to <%= booking.end_date %></p>
+          <p><strong>Booking Status</strong></p>
           <p class="card-text"> <%= booking.status %></p>
         </div>
         <%= link_to 'Edit/Cancel booking', powerbank_booking_path(booking.powerbank, booking), class: , class: "btn btn-primary" %>

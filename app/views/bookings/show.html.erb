@@ -3,7 +3,6 @@
     <%= link_to '↩ Browse more powerbanks', powerbanks_path , class: 'btn btn-primary'%>
   </div>
   <div class="card container p-2">
-    <% @available =  @powerbank.availability ? "Yes" : "Booked" %>
     <div class="row">
       <div class="col">
         <%= cl_image_tag @powerbank.photo.key, class: "rounded mx-auto d-block" %>
@@ -13,7 +12,6 @@
           <li class="list-group-item"><strong>Name: </strong>  <%= @powerbank.name %></li>
           <li class="list-group-item"><strong>Description: </strong> <%= @powerbank.description %></li>
           <li class="list-group-item"><strong>Price: </strong>$<%= @powerbank.price %>per day</li>
-          <li class="list-group-item"><strong>Available: </strong>  <%= @available%></li>
           <li class="list-group-item"><strong>Owner: </strong>  <%= @name%></li>
           <% unless @powerbank.accessories == nil || @powerbank.accessories == "" %>
             <li class="list-group-item"><strong>Accessories: </strong> <%= @powerbank.accessories %></li>
@@ -26,22 +24,17 @@
   </div>
 
 
-
-<% if @powerbank.availability %>
   <div class="d-flex flex-column justify-content-center align-items-center m-3" data-controller="show-booking">
     <div class="d-flex justify-content-end" >
-      <button class="btn btn-primary" data-action="click->show-booking#showBooking" data-show-booking-target="requestbutton"> Request booking </button>
+      <button class="btn btn-primary" data-action="click->show-booking#showBooking" data-show-booking-target="requestbutton"> Update booking </button> <%= link_to 'Cancel booking', powerbank_booking_path(@booking), data: { turbo_confirm: 'Are you sure', turbo_method: :delete } , class: 'btn btn-danger'%>
     </div>
     <div class="hidden" data-show-booking-target="form">
       <%= simple_form_for [@powerbank, @booking] do |f| %>
         <%= f.input :start_date %>
         <%= f.input :end_date %>
-        <%= f.button :submit,  'Book',  class: "btn btn-secondary"%>
+        <%= f.button :submit,  'Update Booking',  class: "btn btn-secondary"%>
         <a href data-action="click->show-booking#showBooking" class="btn btn-secondary">Cancel</a>
       <% end %>
-
     </div>
     </div>
   </div>
-<% end %>
-</div>
